@@ -5,18 +5,8 @@ require("dotenv").config();
 
 
 const { PORT, MONGODB_URI, NODE_ENV, } = require("./config/config");
-
-
-// routes
 const authRoutes = require("./routes/auth");
-
-
-// init express app
 const app = express();
-
-// middlewares
-
-
 
 app.use(express.json());
 app.use(
@@ -27,7 +17,6 @@ app.use(
   })
 );
 
-// log in development environment
 
 if (NODE_ENV === "development") {
   const morgan = require("morgan");
@@ -49,7 +38,6 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoutes);
 
 
-// page not found error handling  middleware
 
 app.use("*", (req, res, next) => {
   const error = {
@@ -59,7 +47,7 @@ app.use("*", (req, res, next) => {
   next(error);
 });
 
-// global error handling middleware
+
 app.use((err, req, res, next) => {
   console.log(err);
   const status = err.status || 500;
