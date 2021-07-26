@@ -30,13 +30,6 @@ const client = require('twilio')(accountSid, authToken);
 //     }
 // }
 
-// await client.messages
-// .create({
-//     body: 'Admin has reset your password . Please use this password to login Clikiko. Your current password is  ' + password,
-//     from: twilio.TWILIO_PHONE_NUMBER,
-//     to: "+91" + phone
-// })
-// .then(message => console.log(message.sid));
 
 
 exports.fast2sms = async({message, contactNumber}, next) => {
