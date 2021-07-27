@@ -40,7 +40,6 @@ exports.fast2sms = async({message, contactNumber}, next) => {
             to: [contactNumber]
         })
         .then(message => console.log("message.sid=================>>>>>>",message.sid));
-        console.log("res----------", res)
     }
     catch (error) {
         next(error)
